@@ -1,0 +1,363 @@
+{% extends 'base.html' %}
+{% load static %}
+
+ {% comment %} <!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Lost & Found </title>
+</head>  {% endcomment %}
+<body>
+    <header>
+        <style>
+
+          {% comment %} home page CSS {% endcomment %}
+            {% comment %} body {
+                font-family: 'Titillium Web', sans-serif;
+                margin: 0;
+                padding: 0;
+                line-height: 1.2;
+                letter-spacing: 1.5px;
+            }
+
+            
+            .background-container {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 65%; /* Set to cover one-third of the page */
+              z-index: -1;
+              background-image: url('{% static "img/logo.jpeg" %}');
+              background-size: cover;
+              background-position:  center 110%; /* Adjust position if cropping is needed */
+              opacity: 0.9;
+            }
+
+
+            .grey-container {
+              position: fixed;
+              top: 40%; /* Adjust top position */
+              left: 0;
+              width: 100%;
+              height: 100%; /* Adjusted height for the grey container */
+              background-color: #000048;
+              z-index: -1;
+              transform-origin: 0% 100%; /* Set transform origin to bottom left */
+              transform: skewY(-3deg); /* Skew the container */
+            }
+
+
+            .card {
+              border-radius: 15px;
+              backdrop-filter: blur(5px);
+              transition: transform 0.2s ease-in-out; 
+              will-change: transform;
+              width: 18rem;
+              font-family: 'Titillium Web', sans-serif;
+              background-color: 
+              color: black;
+              
+            }
+        
+            .card-container {
+              display: flex;
+              gap: 60px; 
+              justify-content: center;
+            }
+            
+            .card:hover {
+              transform: scale(1.1);
+            } 
+
+            .card-title {
+              font-size: 28px;
+            }
+            
+            .card-text {
+              font-size: 15px;
+              line-height: 1.2;
+              letter-spacing: 1.5px;
+            }
+            
+            
+            .card-body hr {
+              border-top: 3px solid rgba(255, 255, 255, 1);
+              margin: 20px 0;
+            }
+
+            .bg{
+              
+              padding: 29px;
+              
+            }
+
+            .container{
+              margin-top: 190px; /* Move the box down */
+              
+          }
+
+          .heading-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+          .heading-box h2 {
+            font-size: 24px; /* Adjust font size */
+            padding: 15px;
+            background-color: #fff;
+            color: black;
+            border-radius: 8px;
+           
+        } {% endcomment %}
+        {% comment %} nav bar CSS {% endcomment %}
+         {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Titillium Web', sans-serif;
+        }
+        nav{
+          position: fixed;
+          z-index: 99;
+          width: 100%;
+          
+          background: #000048;
+        }
+        nav .wrapper{
+          position: relative;
+          max-width: 1300px;
+          padding: 0px 30px;
+          height: 70px;
+          line-height: 70px;
+          margin: auto;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        
+        .wrapper .nav-links{
+          display: inline-flex;
+        }
+        .nav-links li{
+          list-style: none;
+        }
+        .nav-links li a{
+          color: #f2f2f2;
+          text-decoration: none;
+          font-size: 18px;
+          font-weight: 500;
+          padding: 9px 35px;
+          border-radius: 5px;
+          transition: all 0.2s ease;
+        }
+        .nav-links li a:hover{
+          background: grey;
+        }
+
+        .wrapper .btn{
+          color: #91028;
+          font-size: 20px;
+          cursor: pointer;
+          display: none;
+        }
+
+        @media screen and (max-width: 970px) {
+          .wrapper .btn{
+            display: block;
+          }
+          .wrapper .nav-links{
+            position: fixed;
+            height: 100vh;
+            width: 100%;
+            max-width: 350px;
+            top: 0;
+            left: -100%;
+            background: #242526;
+            display: block;
+            padding: 90px 10px;
+            line-height: 50px;
+            overflow-y: auto;
+            box-shadow: 0px 15px 15px rgba(0,0,0,1);
+            transition: all 0.3s ease;
+          }
+          
+          .content .row header{
+            font-size: 19px;
+          }
+        }
+        nav input{
+          display: none;
+        }
+
+        .body-text{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          text-align: center;
+          padding: 0 10px;
+        }
+        .body-text div{
+          font-size: 45px;
+          font-weight: 600;
+        }
+        .logo img {
+          width: 100px; 
+          height: auto; /* Automatically adjust the height while maintaining the aspect ratio */
+          margin-right: 200px;
+        } 
+                    
+            
+        </style>
+
+       
+        
+
+
+    <nav>
+      <div class="wrapper">
+        
+        <div class="wrapper">
+          <div class="logo">
+            <a href="#">
+              <img src="{% static 'img/img1.png' %}" alt="Logo">
+            </a>
+          </div>
+        <input type="radio" name="slider" id="menu-btn">
+        <input type="radio" name="slider" id="close-btn">
+        <ul class="nav-links">
+          
+          <li><a href="#">View Items</a></li>
+          <li><a href="{% url 'report' %}">Report Item</a></li>
+          <li><a href="#">Notifications</a></li>
+          <li><a href="#">Feedback </a></li>
+          
+        
+         <li> <a href="{% url 'logout' %}">Logout</a> </li>
+       
+
+
+            
+          
+        </ul>
+      </div>
+    </nav> 
+  </header>
+
+
+    <div class="background-container"></div>
+  
+   
+    <div class="grey-container"></div>
+    <br/><br/><br/><br/><br/>
+
+    <div class="container">
+      <div class="heading-box"> 
+          <h2>How It Works</h2>
+      </div>
+
+
+      <div class="container d-flex justify-content-center mt-5">
+        <div class="card-container d-flex">
+
+        
+          <div class="card bg" >
+            <div class="card-body" >
+              <h2 class="card-title"> Sign In</h2>
+              <hr>
+              <p class="card-text">Effortlessly secure access with our login feature. 
+                Simply input your credentials and gain instant, protected account entry. 
+                Experience hassle-free authentication management for seamless use.</p>
+              <p class="card-text"></p>
+            </div>
+          </div>
+
+          <div class="card bg" >
+            <div class="card-body">
+              <h2 class="card-title">List It</h2>
+              <hr>
+              <p class="card-text">Lost something valuable? Report it. Found something special? 
+                Report it too. Our system simplifies reporting lost and found items, 
+                ensuring a swift and efficient process</p>
+            </div>
+          </div>
+
+          <div class="card bg">
+            <div class="card-body" >
+              <h2 class="card-title" >Find it</h2>
+              <hr>
+              <p class="card-text">Experience the power of machine learning in action. Utilizing advanced algorithms, 
+                swiftly pinpoint lost items by description. 
+                Unlock the potential of technology in simplifying lost item retrieval.</p>
+            </div>
+          </div>
+
+          <div class="card bg">
+            <div class="card-body" >
+              <h2 class="card-title" >Feedback</h2>
+              <hr>
+              <p class="card-text">Your feedback fuels our continuous improvement. 
+                Share your thoughts and suggestions, helping us enhance your experience.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+   
+
+      
+    
+      
+    </body>
+    <footer class="bg-body-tertiary text-center text-lg-start">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">About Us</h5>
+            
+    
+            <p style="line-height: 1.6;">
+                            We are dedicated to simplifying the process of reuniting lost items with their rightful owners. 
+              Our platform harnesses advanced technology and user-friendly interfaces to efficiently manage and
+               report lost and found items. With a commitment to seamless user experience, we aim to provide a 
+               secure and hassle-free system for reporting lost possessions and helping individuals retrieve what
+                matters most to them. Our mission is to leverage innovative solutions, ensuring swift and effective 
+                item recovery while prioritizing user satisfaction and peace of mind.
+            </>
+          </div>
+          
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h3>Contact Information</h3>
+            <p>Email: shashanklama888@gmail.com</p>
+            <p>Phone: +977 9801762189</p>
+            <p>Address: Islington College, Kamalpokhari</p>
+        </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </div>
+      
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2023 Copyright:
+        
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+    
+    
+</html>
