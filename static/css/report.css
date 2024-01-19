@@ -1,0 +1,12 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Make sure the body takes the full height of the viewport */
+    margin: 0;
+  }
+
+  form {
+    margin-top: 50px; /* Adjust the margin to bring the form down */
+    width: 50%; /* Adjust the width of the form as needed */
+  }
