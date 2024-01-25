@@ -1,12 +1,39 @@
-body {
+
+#reportForm {
+    margin-top: 100px;
+    padding: 40px;
+    font-family: 'Titillium Web', sans-serif;
+    color: white
+
+
+    
+
+  }
+#reportText {
+    text-align: center;
+    font-size: 29px;
+    font-weight: bold;
+    margin-top: px; /* Adjust as needed */
+    font-family: 'Titillium Web', sans-serif;
+    color: white
+  }
+  .form-row {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh; /* Make sure the body takes the full height of the viewport */
-    margin: 0;
   }
 
-  form {
-    margin-top: 50px; /* Adjust the margin to bring the form down */
-    width: 50%; /* Adjust the width of the form as needed */
+  #formContainer {
+    background-color: #000048; /* Dark Navy Blue */
+    padding: 20px; /* Add padding for spacing */
+    border-radius: 8px; /* Optional: Add border radius for rounded corners */
+    max-height: 177vh; /* Set a maximum height in terms of viewport height */
+    max-width: 120vh; /* Set a maximum width */
+    margin: auto; 
+  
   }
+
+
+
+  
+  
