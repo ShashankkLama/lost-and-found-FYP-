@@ -1,7 +1,6 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
-
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from rest_framework.views import APIView
@@ -48,9 +47,10 @@ def LoginPage(request):
         user=authenticate(request, username=username, password=pass1)
         if user is not None:
             login(request, user)
-            messages.success(request, "Successfully Logged In")
+            # messages.success(request, "Successfully Logged In")
             return redirect('home')
         else:
+            messages.error(request, "Invalid username or password")
             return redirect('/')
         
         

@@ -3,10 +3,11 @@
     margin-top: 100px;
     padding: 40px;
     font-family: 'Titillium Web', sans-serif;
-    color: white
-
-
-    
+    color: white;
+    background-color: #000048; 
+    max-width: 150vh; 
+    margin: auto;
+    margin-top: 90px;
 
   }
 #reportText {
@@ -24,13 +25,9 @@
   }
 
   #formContainer {
-    background-color: #000048; /* Dark Navy Blue */
-    padding: 20px; /* Add padding for spacing */
-    border-radius: 8px; /* Optional: Add border radius for rounded corners */
-    max-height: 177vh; /* Set a maximum height in terms of viewport height */
-    max-width: 120vh; /* Set a maximum width */
-    margin: auto; 
-  
+    padding: 20px; 
+    border-radius: 8px; 
+    
   }
 
 
