@@ -10,13 +10,61 @@
 {#---------------------------------------------------Body-------------------------------------------------------#}
 
 {%block content%}
-<div id="formContainer">
-      <form id="reportForm" >
-        <div id="reportText" class="text-center">REPORT ITEM</div>
-        <div class="form-row">
+
+  <div class="form-row">
+      <form method='POST' id= "reportForm">
+        {%csrf_token%}
+
+      <div id="reportText" class="text-center">REPORT ITEM</div>
+
+        <label for="itemname">Item Name</label>
+        <input type="text" class="form-control" placeholder="Enter name" id="name" name="name"/><br/><br/>
+        
+
+
+        <label for="brand">Brand</label> 
+        <input type="text" class="form-control" placeholder="Enter brand" id="brand" name="brand" />
+        
+        <br/><br/>
+
+        <label for="category">Category</label>
+        <select class="form-control" id="category" name="category">
+            <option value="clothingitem">....</option>
+            <option value="phone">Phone</option>
+            <option value="umbrella">Umbrella</option>
+            <option value="charger">Charger</option>
+            <option value="clothingitem">Clothing Item</option>
+            <option value="miscellaneous">Miscellaneous</option>
+        </select>
+
+        <br/><br/>
+
+        <label for="lostlocation">Lost Location</label>
+        <input type="text" class="form-control" id="lostlocation", name="lostlocation" placeholder="Lost Location"><br/><br/>
+
+        <label for="foundlocation">Found Location</label>
+        <input type="text" class="form-control" id="lostlocation", name="foundlocation" placeholder="Found Location"><br/><br/>
+
+        <label for="lostdate">Lost Date</label>
+        <input type="date" class="form-control" id="lostdate", name="lostdate"><br/><br/>
+
+        <label for="founddate">Found Date</label>
+        <input type="date" class="form-control" id="founddate", name="founddate"><br/><br/>
+
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" , name="description", rows="4"></textarea>
+
+
+
+        <button type="submit" class="btn btn-primary mx-auto my-auto d-block">Submit </button>
+
+      </div>
+ 
+{% comment %} 
+         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="itemname">Item Name</label>
-                <input type="text" class="form-control" id="itemname" ,name="itemname", placeholder="Enter Item Name">
+                <input type="text" class="form-control" id="name" ,name="name", placeholder="Enter Item Name">
             </div>
             <br/>
             <div class="form-group col-md-6">
@@ -24,52 +72,52 @@
                 <input type="text" class="form-control" id="brand", name="brand" placeholder="Brand Name">
             </div>
         </div>
-      <br/>
-      <div class="form-row">
-          <div class="form-group col-md-6">
-              <label for="category">Category</label>
-              <select class="form-control" id="category" name="category">
-                  <option value="clothingitem">....</option>
-                  <option value="phone">Phone</option>
-                  <option value="umbrella">Umbrella</option>
-                  <option value="charger">Charger</option>
-                  <option value="clothingitem">Clothing Item</option>
-                  <option value="miscellaneous">Miscellaneous</option>
-              </select>
-          </div>
-      </div>
-      <br/>
-      <div class="form-row">
+        <br/>
+        <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="lostlocation">Lost Location</label>
-                <input type="text" class="form-control" id="lostlocation", name="lostlocation" placeholder="Lost Location">
+                <label for="category">Category</label>
+                <select class="form-control" id="category" name="category">
+                    <option value="clothingitem">....</option>
+                    <option value="phone">Phone</option>
+                    <option value="umbrella">Umbrella</option>
+                    <option value="charger">Charger</option>
+                    <option value="clothingitem">Clothing Item</option>
+                    <option value="miscellaneous">Miscellaneous</option>
+                </select>
+            </div>
+        </div>
+        <br/>
+        <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="lostlocation">Lost Location</label>
+                  <input type="text" class="form-control" id="lostlocation", name="lostlocation" placeholder="Lost Location">
+              </div>
+              <br/>
+              <div class="form-group col-md-6">
+                <label for="foundlocation">Found Location</label>
+                <input type="text" class="form-control" id="lostlocation", name="foundlocation" placeholder="Found Location">
             </div>
             <br/>
+              <div class="form-group col-md-6">
+                <label for="lostdate">Lost Date</label>
+                <input type="date" class="form-control" id="lostdate", name="lostdate">
+            </div>
+            <br/>
+              <div class="form-group col-md-6">
+                <label for="founddate">Found Date</label>
+                <input type="date" class="form-control" id="founddate", name="founddate">
+            </div>
+            <br/>
+            
             <div class="form-group col-md-6">
-              <label for="foundlocation">Found Location</label>
-              <input type="text" class="form-control" id="lostlocation", name="foundlocation" placeholder="Found Location">
+              <label for="description">Description</label>
+              <textarea class="form-control" id="description" , name="description", rows="4"></textarea>
           </div>
-          <br/>
-            <div class="form-group col-md-6">
-              <label for="lostdate">Lost Date</label>
-              <input type="date" class="form-control" id="lostdate", name="lostdate">
-          </div>
-          <br/>
-            <div class="form-group col-md-6">
-              <label for="founddate">Found Date</label>
-              <input type="date" class="form-control" id="founddate", name="founddate">
-          </div>
-          <br/>
-          
-          <div class="form-group col-md-6">
-            <label for="description">Description</label>
-            <textarea class="form-control" id="description" , name="description", rows="4"></textarea>
-        </div>
-        <br/>  
-      <br/>
-  <button type="submit" class="btn btn-primary mx-auto my-auto d-block">Submit </button>
+          <br/>  
+        <br/> 
+    <button type="submit" class="btn btn-primary mx-auto my-auto d-block">Submit </button>
   </form> 
-</div>
+</div> {% endcomment %}
 
 {% endblock %}
 

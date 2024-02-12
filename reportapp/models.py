@@ -5,14 +5,13 @@ from django.contrib.auth.models import User
 class Article(models.Model):
     name= models.CharField(max_length=100 )
     brand= models.CharField(max_length=100 )
-    category= models.CharField(max_length=100 )
-    description= models.CharField(max_length=100 )
-    image= models.ImageField(max_length=100 )
-    lostlocation= models.CharField(max_length=100 )
-    foundlocation= models.CharField(max_length=100 )
-    lostdate= models.DateTimeField(max_length=100 )
-    founddate= models.DateTimeField(max_length=100 )
-    create_date= models.DateTimeField()
+    category= models.CharField(max_length=100)
+    description= models.CharField(max_length=100, blank=True, null=True)
+    image= models.ImageField(max_length=100, blank=True, null=True)
+    lostlocation= models.CharField(max_length=100, blank=True, null=True)
+    foundlocation= models.CharField(max_length=100, blank=True, null=True)
+    lostdate= models.DateTimeField()
+    founddate= models.DateTimeField()
     user = models.ForeignKey( User, on_delete = models.CASCADE, blank=True, null=True) 
     
     

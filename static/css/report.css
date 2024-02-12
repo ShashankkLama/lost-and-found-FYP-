@@ -1,15 +1,15 @@
 
 #reportForm {
+    width: 90%;
     margin-top: 100px;
     padding: 40px;
     font-family: 'Titillium Web', sans-serif;
     color: white;
     background-color: #000048; 
-    max-width: 150vh; 
-    margin: auto;
+    max-width: 900px; 
     margin-top: 90px;
 
-  }
+  } 
 #reportText {
     text-align: center;
     font-size: 29px;
@@ -24,11 +24,11 @@
     align-items: center;
   }
 
-  #formContainer {
+  /* #formContainer {
     padding: 20px; 
     border-radius: 8px; 
     
-  }
+  } */
 
 
 

@@ -41,6 +41,7 @@ def SignupPage(request):
 def LoginPage(request):
     if request.method=='POST':  
         username=request.POST.get('username')
+        print(username, '-=-==-=-=')
         pass1= request.POST.get('pass')
         print(username, pass1)
         
