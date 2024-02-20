@@ -41,7 +41,7 @@ def SignupPage(request):
 def LoginPage(request):
     if request.method=='POST':  
         username=request.POST.get('username')
-        print(username, '-=-==-=-=')
+        print(username,)
         pass1= request.POST.get('pass')
         print(username, pass1)
         
@@ -52,7 +52,6 @@ def LoginPage(request):
             return redirect('home')
         else:
             messages.error(request, "Invalid username or password")
-            return redirect('/')
         
         
     return render(request, 'login.html')

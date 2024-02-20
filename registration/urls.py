@@ -1,7 +1,6 @@
-import os
 from django.contrib import admin
 from django.urls import path, include
-from app1 import views
+from feedbackapp import views
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -14,5 +13,7 @@ urlpatterns = [
     path('' , include('app1.urls')),
     
     path('report/', include('reportapp.urls')),
+    
+    path('feedback/', include('feedbackapp.urls')),
       
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

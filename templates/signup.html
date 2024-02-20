@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Design by foolishdeveloper.com -->
+
     <title>Signup Page</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet"/>
     <!--Stylesheet-->
     <style media="screen">
       *,
@@ -30,33 +24,29 @@
         height: 520px;
         position: absolute;
         transform: translate(-50%, -50%);
-        left: 50%;
+        left: 69%;
         top: 50%;
       }
       .background .shape {
-        height: 200px;
-        width: 200px;
+        height: 170px;
+        width: 170px;
         position: absolute;
         border-radius: 50%;
       }
       .shape:first-child {
         background: linear-gradient(#1845ad, #23a2f6);
         left: -80px;
-        top: -80px;
+        top: -100px;
       }
-      {% comment %} .shape:last-child {
-        background: linear-gradient(to right, #ff512f, #f09819);
-        right: -30px;
-        bottom: -80px;
-      } {% endcomment %}
+    
       form {
-        height: 600px;
+        height: 660px;
         width: 450px;
         background-color: rgba(255, 255, 255, 0.13);
         position: absolute;
         transform: translate(-50%, -50%);
         top: 50%;
-        left: 50%;
+        left: 70%;
         border-radius: 10px;
         backdrop-filter: blur(10px);
         border: 2px solid rgba(255, 255, 255, 0.1);
@@ -71,16 +61,16 @@
         border: none;
       }
       form h3 {
-        font-size: 32px;
+        font-size: 22px;
         font-weight: 500;
-        line-height: 42px;
+        line-height: 12px;
         text-align: center;
       }
 
       label {
         display: block;
-        margin-top: 30px;
-        font-size: 16px;
+        margin-top: 15px;
+        font-size: 15px;
         font-weight: 500;
       }
       input {
@@ -130,6 +120,21 @@
       .social i {
         margin-right: 4px;
       }
+
+      .lost-text {
+        position: fixed;
+        top: 50%;
+        left: 70px;
+        transform: translateY(-50%);
+        font-size: 6.7rem; /* Adjust the font size as needed */
+        color: white; /* Set the text color to white */
+        font-family: 'Poppins', sans-serif; /* Set the desired font family */
+        text-transform: uppercase; /* Convert text to uppercase */
+        letter-spacing: 3px; /* Add letter spacing for a hollow effect */
+        opacity: 1; /* Adjust the opacity for a hollow effect */
+      }
+
+
     </style>
   </head>
   <body>
@@ -141,6 +146,11 @@
       {% csrf_token %}
 
       <h3>Signup Here</h3>
+      <label for="firstname">First Name</label>
+      <input type="text" placeholder="First Name" name="firstname" id="firstname" />
+
+      <label for="lastname">Last Name</label>
+      <input type="text" placeholder="Last Name" name="lastname" id="lastname" />
 
       <label for="username">Username</label>
       <input type="text" placeholder="Username" name="username" id="username" />
@@ -153,8 +163,17 @@
 
       <label for="password2">Confirm Password</label>
       <input type="password" placeholder="Confirm Password" id="password2" name="password2" />
+      <br/>
+
       <button type="submit">Signup</button>
       <a href="/ ">Already have an account?</a>
     </form>
+
+    <div class="lost-text">
+      <p>Lost it? <br/>
+        List it. <br/>
+        Find it.</p>
+  </div>
+
   </body>
 </html>

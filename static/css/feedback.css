@@ -1,0 +1,35 @@
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    height: 120 vh;
+    margin-top: 80px;
+ 
+  }
+  
+  .form {
+    width: 900px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top:50px;
+    padding: 40px;
+    font-family: 'Titillium Web', sans-serif;
+    color: white;    background-color: #000048; 
+   
+
+  }
+
+
+  .form h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center; /* Center the text within the h1 element */
+
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  

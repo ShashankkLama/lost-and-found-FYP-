@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     'app1',
     'rest_framework.authtoken',
     'reportapp',
-   
+    'feedbackapp',
     
-
+   
 ]
 
 MIDDLEWARE = [
