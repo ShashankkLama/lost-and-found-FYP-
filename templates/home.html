@@ -11,6 +11,22 @@
 
 {%block content%}
 
+<div  style="width:100%;position:fixed;z-index:999;">
+
+  {% for message in messages %}
+  
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+  </div>
+
+  {% endfor %}
+
+</div> 
+
+
+
 <div class="background-container" style="background-image: url('{% static "img/logo.jpeg" %}')"></div>
 
 

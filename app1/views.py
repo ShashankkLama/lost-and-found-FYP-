@@ -28,8 +28,11 @@ def SignupPage(request):
         pass1=request.POST.get('password1')
         pass2=request.POST.get('password2')
         
+            
         if pass1!=pass2:
-            return HttpResponse("Your passwords donot match, try again.")
+            messages.success(request, "passowrds dont match")
+            print('Your passwords do not match')
+        
         else:
             my_user=User.objects.create_user(uname,email,pass1)
             my_user.save()
@@ -48,8 +51,11 @@ def LoginPage(request):
         user=authenticate(request, username=username, password=pass1)
         if user is not None:
             login(request, user)
-            # messages.success(request, "Successfully Logged In")
+            messages.success(request, "Successfully Logged In")
+            print( 'Logged in Successfully ')
+           
             return redirect('home')
+        
         else:
             messages.error(request, "Invalid username or password")
         
