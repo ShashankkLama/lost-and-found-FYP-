@@ -194,5 +194,6 @@ nav input{
 .logo img {
   width: 100px; 
   height: auto; 
-  margin-right: 200px;
+  margin-right: 300px;
+  border-radius: 30%;
 } 
