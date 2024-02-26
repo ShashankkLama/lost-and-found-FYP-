@@ -12,40 +12,79 @@
 {% block content %}
 
 <div class="form-container">
-  <form class="form">
+  <form class="form" method ="POST">
+    {% csrf_token %}
     <h1>Provide Feedback</h1>
 
     <div class="form-group">
-      <label for="exampleFormControlInput1">Email address</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      <label for="emailinput">Email</label>
+      <input name ="email" type="email" class="form-control" id="emailinput" placeholder="name@example.com" >
     </div>
+    
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Example select</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
+      <label>How would you rate your experience?</label>
+      <div class="rating-box">
+        <label class="radio-label">
+          <input type="radio" name="rating" value="1">
+          <span class="rating-number">1</span>
+        </label>
+    
+        <label class="radio-label">
+          <input type="radio" name="rating" value="2">
+          <span class="rating-number">2</span>
+        </label>
+    
+        <label class="radio-label">
+          <input type="radio" name="rating" value="3">
+          <span class="rating-number">3</span>
+        </label>
+    
+        <label class="radio-label">
+          <input type="radio" name="rating" value="4">
+          <span class="rating-number">4</span>
+        </label>
+    
+        <label class="radio-label">
+          <input type="radio" name="rating" value="5">
+          <span class="rating-number">5</span>
+        </label>
+
+        <label class="radio-label">
+          <input type="radio" name="rating" value="6">
+          <span class="rating-number">6</span>
+        </label>
+
+        <label class="radio-label">
+          <input type="radio" name="rating" value="7">
+          <span class="rating-number">7</span>
+
+        </label><label class="radio-label">
+          <input type="radio" name="rating" value="8">
+          <span class="rating-number">8</span>
+        </label>
+
+        <label class="radio-label">
+          <input type="radio" name="rating" value="9">
+          <span class="rating-number">9</span>
+        </label>
+
+        <label class="radio-label">
+          <input type="radio" name="rating" value="10">
+          <span class="rating-number">10</span>
+        </label>
+      </div>
     </div>
+
     <div class="form-group">
-      <label for="exampleFormControlSelect2">Example multiple select</label>
-      <select multiple class="form-control" id="exampleFormControlSelect2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">Example textarea</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <label for="feedbacktext">Share your experience and how it was.</label>
+      <textarea name="feedbacktext" class="form-control" id="feedbacktext" rows="4"></textarea>
       <br/>
       <button type="submit" class="btn btn-primary mx-auto my-auto d-block">Submit </button>
 
     </div>
+    
+
+    
   </form>
 </div>
 {% endblock %}

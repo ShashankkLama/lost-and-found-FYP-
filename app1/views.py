@@ -30,8 +30,10 @@ def SignupPage(request):
         
             
         if pass1!=pass2:
-            messages.error(request, "passowrds dont match")
-            print('Your passwords do not match')
+            # messages.error(request, "passowrds dont match")
+            # print('Your passwords do not match')
+            error_message = "Your Passwords donot match"
+            return render(request, 'signup.html', {'error_message': error_message})
             
         elif not uname:
              error_message = "Please enter a username"
@@ -43,6 +45,8 @@ def SignupPage(request):
             
             return redirect('login')
         print(uname, email, pass1, pass2)
+    if request.user.is_authenticated:
+        return redirect('home')
     return render(request, 'signup.html')
 
 def LoginPage(request):

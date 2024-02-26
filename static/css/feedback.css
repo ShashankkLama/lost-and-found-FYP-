@@ -29,7 +29,18 @@
   }
 
   .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 30px;
   }
+
+  .rating-number {
+    font-size: 19px;
+    margin-top: 5px;
+  }
+  
+  .rating-box {
+    display: flex;
+    gap: 20px;
+  }
+
 
   

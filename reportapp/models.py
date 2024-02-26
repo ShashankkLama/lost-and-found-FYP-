@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Article(models.Model):
     name= models.CharField(max_length=100 )
-    brand= models.CharField(max_length=100 )
+    brand= models.CharField(max_length=100, blank=True, null=True)
     category= models.CharField(max_length=100, blank=True, null=True )
     description= models.CharField(max_length=100, blank=True, null=True)
     image= models.ImageField(max_length=100, blank=True, null=True)
