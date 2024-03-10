@@ -4,9 +4,7 @@ from reportapp import views
 
 
 urlpatterns = [
-    path('report', views.ReportItemPage, name='report'),
+    path('report', views.ReportLostItem, name='report'),
     path('reportfound', views.ReportFoundItem, name='reportfound'),
-
-    
-    
+ 
 ]

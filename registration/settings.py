@@ -33,7 +33,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -44,8 +43,10 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'reportapp',
     'feedbackapp',
-    
-   
+    'adminlte3',
+    'adminlte3_theme',
+    'django.contrib.admin',
+    # Other apps...
 ]
 
 MIDDLEWARE = [
@@ -86,12 +87,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'lostfound',      # Replace with your database name
-        'USER': 'root',     # Replace with your MySQL username
-        'PASSWORD': '', # Replace with your MySQL password
-        'HOST': 'localhost',               # Replace with MySQL host (usually 'localhost')
-        'PORT': '3306',                    # Replace with MySQL port if not default (usually 3306)
+        'USER': 'root',           # Replace with your MySQL username
+        'PASSWORD': '',           # Replace with your MySQL password
+        'HOST': 'localhost',      # Replace with MySQL host (usually 'localhost')
+        'PORT': '3306',           # Replace with MySQL port if not default (usually 3306)
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
+
 
 
 # Password validation

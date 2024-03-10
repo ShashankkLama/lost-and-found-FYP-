@@ -1,17 +1,16 @@
 from django.shortcuts import render
 from reportapp.models import Article
 from django.utils import timezone
+from .models import Article
 
 
-def ReportItemPage(request):
+def ReportLostItem(request):
    if request.method=='POST':
       name=request.POST.get('name')
       brand=request.POST.get('brand')
       category=request.POST.get('category')
       lostlocation=request.POST.get('lostlocation')
-      foundlocation=request.POST.get('foundlocation')
       lostdate=request.POST.get('lostdate')
-      founddate=request.POST.get('founddate')
       description=request.POST.get('description')
       
       
@@ -21,16 +20,14 @@ def ReportItemPage(request):
             brand = brand,
             category=category,
             lostlocation=lostlocation,
-            foundlocation=foundlocation,
             lostdate=lostdate,
-            founddate=founddate,
             description=description,    
          )
          print(brand, name,category,lostlocation)
       except:
          print('not created')
          pass
-   print(' created')
+   print(' The lost item has been reported successfully.')
    return render(request, 'reportlost.html')
 
 def ReportFoundItem(request):
@@ -38,9 +35,7 @@ def ReportFoundItem(request):
       name=request.POST.get('name')
       brand=request.POST.get('brand')
       category=request.POST.get('category')
-      lostlocation=request.POST.get('lostlocation')
       foundlocation=request.POST.get('foundlocation')
-      lostdate=request.POST.get('lostdate')
       founddate=request.POST.get('founddate')
       description=request.POST.get('description')
       
@@ -50,21 +45,21 @@ def ReportFoundItem(request):
             name=name,
             brand = brand,
             category=category,
-            lostlocation=lostlocation,
             foundlocation=foundlocation,
-            lostdate=lostdate,
             founddate=founddate,
             description=description
 
             
          )
-         print(brand, name,category,lostlocation)
+         print(brand, name,category,foundlocation)
       except:
          print('not created')
          pass
-   print('The item has been reported successfully.')
+   print('The found item has been reported successfully.')
    
    return render(request, 'reportfound.html')
+
+
 
     
      
