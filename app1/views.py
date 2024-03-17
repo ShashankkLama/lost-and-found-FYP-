@@ -24,8 +24,8 @@ def HomePage(request):
 def SignupPage(request):
     if request.method=='POST':
         uname=request.POST.get('username')
-        # firstname=request.POST.get('firstname')
-        # lastname=request.POST.get('lastname')
+        firstname=request.POST.get('firstname')
+        lastname=request.POST.get('lastname')
         email=request.POST.get('email')
         pass1=request.POST.get('password1')
         pass2=request.POST.get('password2')
@@ -37,9 +37,17 @@ def SignupPage(request):
         elif not uname:
              error_message = "Please enter a username"
              return render(request, 'signup.html', {'error_message': error_message})
+         
+             
                   
         else:
-            my_user=User.objects.create_user(uname, email,pass1)
+            my_user=User.objects.create_user(uname,email,pass1)
+            
+            # Set additional fields
+            my_user.firstname = firstname
+            my_user.lastname = lastname
+            
+            # Save the user object
             my_user.save()
             
             return redirect('login')

@@ -16,7 +16,7 @@
       <form method='POST' id= "reportForm">
         {%csrf_token%}
 
-      <div id="reportText" class="text-center">REPORT ITEM</div>
+      <div id="reportText" class="text-center">REPORT LOST ITEM</div>
 
         <label for="itemname">Item Name</label>
         <input type="text" class="form-control" placeholder="Enter name" id="name" name="name"/><br/><br/>
@@ -33,7 +33,9 @@
             <option value="umbrella">Umbrella</option>
             <option value="charger">Charger</option>
             <option value="clothingitem">Clothing Item</option>
+            <option value="laptop">Laptop</option>
             <option value="miscellaneous">Miscellaneous</option>
+
         </select>
 
         <br/><br/>
@@ -41,9 +43,9 @@
         <label for="lostlocation">Lost Location</label>
         <input type="text" class="form-control" id="lostlocation", name="lostlocation" placeholder="Lost Location"><br/><br/>
 
-
         <label for="lostdate">Lost Date</label>
-        <input type="date" class="form-control" id="lostdate", name="lostdate"><br/><br/>
+        <input type="date" class="form-control" id="lostdate" name="lostdate"><br/><br/>
+        
 
 
         <label for="description">Description</label>

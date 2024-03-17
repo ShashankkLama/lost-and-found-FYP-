@@ -8,10 +8,15 @@ class Article(models.Model):
     category = models.CharField(max_length=100, blank=True, null=True)
     description = models.CharField(max_length=100, blank=True, null=True)
     image = models.ImageField(upload_to='article_images/', blank=True, null=True)
-    lostlocation = models.CharField(max_length=100, blank=True, null=True)
-    foundlocation = models.CharField(max_length=100, blank=True, null=True)
-    lostdate = models.DateTimeField(default=timezone.now)
-    founddate = models.DateTimeField(default=timezone.now)
-    create_date = models.DateTimeField(default=timezone.now, blank=True)
+    # lostlocation = models.CharField(max_length=100, blank=True, null=True)
+    lostlocation = models.CharField(max_length=255, blank= True, null=True)  # Set a default value
+    foundlocation = models.CharField(max_length=100)
+    lostdate = models.DateTimeField()
+    founddate = models.DateTimeField()
+    # create_date = models.DateTimeField(default=timezone.now, null=True,blank=True)
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    status = models.CharField(max_length=100, blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, max_length= 100)
+
+def __str__(self):
+    return self.all
