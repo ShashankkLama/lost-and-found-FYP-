@@ -20,6 +20,10 @@
       <th>Category</th>
       <th>Lost Location</th>
       <th>Found Location</th>
+      <th>Description</th>
+      <th>Lost Date </th>
+      <th>Found Date</th>
+      <th>Status </th>
     </tr>
     
   {% for item in all %}
@@ -30,6 +34,9 @@
       <td>{{ item.lostlocation }}</td>
       <td>{{ item.foundlocation }}</td>
       <td>{{ item.description }}</td>
+      <td>{{ item.lostdate }}</td>
+      <td>{{ item.founddate }}</td>
+      <td>{{ item.status }}</td>
     </tr>
   {% endfor %}
   

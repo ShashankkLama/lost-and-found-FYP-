@@ -75,7 +75,7 @@ def ReportFoundItem(request):
                 name = request.POST.get('name')
                 brand = request.POST.get('brand')
                 category = request.POST.get('category')
-                foundlocation = request.POST.get('foudlocation')
+                foundlocation = request.POST.get('foundlocation')
                 founddate= request.POST.get('founddate')
                 description = request.POST.get('description')
                 status = "Found"
@@ -104,7 +104,7 @@ def ReportFoundItem(request):
                 print('Name:', article.name)
                 print('Brand:', article.brand)
                 print('Category:', article.category)
-                print('Found Location:', article.lostlocation)
+                print('Found Location:', article.foundlocation)
                 print('Description:', article.description)
 
                 print('The found item has been reported successfully.')
