@@ -5,45 +5,75 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/viewitems.css' %}">
+<style>
+  /* Custom CSS for the decorated table */
+  .decorated-table {
+      margin-top: 20px;
+      margin-left: 20px;
+      border-collapse: collapse;
+      width: 100%; /* Set width to 100% */
+      max-width: 110%; /* Set max-width to 110% */
+      padding: 15px;
+  }
+  
+  .decorated-table th, .decorated-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+  }
+  
+  .decorated-table th {
+      background-color: #2b1b71;
+      color: white;
+  }
+  
+  .decorated-table th:first-child, .decorated-table td:first-child {
+      padding-left: 20px;
+  }
+  
+  
+</style>
 {% endblock %} 
 
 {#---------------------------------------------------Body-------------------------------------------------------#} 
 
-
-
 {% block content%}
- 
-<table>
-    <tr>
-      <th>Name</th>
-      <th>Brand</th>
-      <th>Category</th>
-      <th>Lost Location</th>
-      <th>Found Location</th>
-      <th>Description</th>
-      <th>Lost Date </th>
-      <th>Found Date</th>
-      <th>Status </th>
-    </tr>
-    
-  {% for item in all %}
-    <tr>
-      <td>{{ item.name }}</td>
-      <td>{{ item.brand }}</td>
-      <td>{{ item.category }}</td>
-      <td>{{ item.lostlocation }}</td>
-      <td>{{ item.foundlocation }}</td>
-      <td>{{ item.description }}</td>
-      <td>{{ item.lostdate }}</td>
-      <td>{{ item.founddate }}</td>
-      <td>{{ item.status }}</td>
-    </tr>
-  {% endfor %}
-  
-  </table>
-
-
-
-{% endblock%}
-    
-
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <table class="decorated-table">
+                <thead>
+                    <tr>
+                        <th>s.no</th>
+                        <th>Name</th>
+                        <th>Brand</th>
+                        <th>Category</th>
+                        <th>Lost Location</th>
+                        <th>Found Location</th>
+                        <th>Description</th>
+                        <th>Lost Date</th>
+                        <th>Found Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in all %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td> 
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.brand }}</td>
+                            <td>{{ item.category }}</td>
+                            <td>{{ item.lostlocation }}</td>
+                            <td>{{ item.foundlocation }}</td>
+                            <td>{{ item.description }}</td>
+                            <td>{{ item.lostdate }}</td>
+                            <td>{{ item.founddate }}</td>
+                            <td>{{ item.status }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
