@@ -3,7 +3,11 @@ from reportapp.models import Article
 from django.contrib.auth.decorators import login_required
 from reportapp.models import Article
 from datetime import datetime 
-
+from asgiref.sync import async_to_sync
+from django.shortcuts import render, HttpResponse
+from channels.layers import get_channel_layer
+import json
+from django.http import HttpResponse
 
 
 # def ReportFoundItem(request):
@@ -124,8 +128,29 @@ def viewItems(request):
     return render ( request, 'viewitems.html', {'all' : all_articles})
 
 
+# def test(request):
+#     channel_layer = get_channel_layer()
+#     async_to_sync(channel_layer.group_send)(
+#         "notification_broadcast",
+#         {
+#             'type': 'send_notification',
+#             'message': json.dumps("Notification")
+#         }
+#     )
+#     return HttpResponse("Done")
 
 
-
+# def test(request):
+#     channel_layer = get_channel_layer()
+#     async_to_sync(channel_layer.group_send)(
+#         "notification_broadcast",
+#         {
+#             'type': 'send_notification',
+#             'message': json.dumps("Notification")
+#         }
+#     )
+#     response = HttpResponse("Done")
+#     response['Custom-Header'] = 'Value'  # Add your custom header here
+#     return response
     
      

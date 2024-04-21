@@ -14,6 +14,63 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     {% block css %}{% endblock %}
     <title>Lost & Found </title>
+    <style>
+      .notification {
+          background-color: #0d6efd;
+          color: white;
+          text-decoration: none;
+          padding: 4px 24px;
+          margin-right: 20px;
+          margin-left: 20px;
+          position: relative;
+          display: inline-block;
+          border-radius: 2px;
+          font-size: 20px;
+      }
+    
+      .notification:hover {
+          background: #0b5ed7;
+          color: #fff;
+      }
+    
+      .notification .badge {
+          position: absolute;
+          top: -10px;
+          right: -10px;
+          padding: 8px 8px;
+          border-radius: 50%;
+          background: red;
+          color: white;
+      }
+    
+      .notification-section .dropdown-toggle::after {
+          content: none;
+      }
+    
+      .dropdown-toggle::after {
+          color: #fff;
+      }
+    
+      #notifications-dropdown li {
+          max-width: 500px;
+          word-wrap: break-word;
+          display: inline-block;
+          white-space: normal;
+      }
+    
+      .notifications-dropdown.dropdown-menu {
+          width: 15rem;
+      }
+      .hello-message {
+        display: none;
+    }
+    
+    /* Show the Hello message when the dropdown link gains focus */
+    .notification:focus + .dropdown-menu #hello-message {
+        display: block;
+    }
+      
+    </style>
 </head>
 
 {#---------------------------------------------------Nav-Bar---------------------------------------------------------#}
@@ -35,7 +92,24 @@
           <li><a href="{% url 'viewitems' %}">View Items</a></li>
           <li><a href="{% url 'report' %}">Report Lost Item</a></li>
           <li><a href="{% url 'reportfound' %}">Report Found Item</a></li>
-          <li><a href="#">Notifications</a></li>
+          {% comment %} <li><a href="#">Notifications</a></li> {% endcomment %}
+          {% comment %} <li class="nav-item dropdown notification-section">
+            <a href="#" class="notification dropdown-toggle" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="true">
+                <span><i class='fa fa-bell'></i></span>
+                <span class="badge" id="notification-badge">0</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="notifications-dropdown"
+                data-popper-placement="bottom-end"
+                style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(-70px, 42px, 0px);">asdfsd
+                
+                {% for i in notifications %}
+                <li class="dropdown-item">{{i.message}}</li>
+                <hr class="dropdown-divider">
+                {% endfor %}
+                
+            </ul>
+          </li> {% endcomment %}
           <li><a href="{% url 'feedback' %}">Feedback </a></li>
           
           
@@ -53,6 +127,34 @@
     {% block content %}
     {% endblock %}
     {#------------------------------------------ Footer -----------------------------------------------#}
+
+
+    
+    {{ room_name|json_script:"room-name" }}
+    <script>
+        const roomName = JSON.parse(document.getElementById('room-name').textContent);
+
+        const notificationSocket = new WebSocket(
+            'ws://'
+            + window.location.host
+            + '/ws/notification/'
+            + roomName
+            + '/'
+        );
+
+        notificationSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            //document.querySelector('#chat-log').value += (data.message + '\n');
+            console.log(data);
+            document.getElementById("notifications-dropdown").innerHTML = "<li class='dropdown-item'>" + data + "</li><hr class='dropdown-divider'>" + document.getElementById("notifications-dropdown").innerHTML;
+            document.getElementById("notification-badge").innerHTML = parseInt(document.getElementById("notification-badge").innerHTML) + 1;
+        };
+
+        notificationSocket.onclose = function(e) {
+            console.error('Chat socket closed unexpectedly');
+        };
+       
+    </script>
 
     <footer class="bg-body-tertiary text-center text-lg-start">
       <div class="container p-4">

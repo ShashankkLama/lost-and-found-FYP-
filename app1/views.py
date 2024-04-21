@@ -16,7 +16,9 @@ from django.contrib.auth import logout
 def HomePage(request):
     if request.user:
         print(request.user)
-        return render(request, 'home.html')
+        return render(request, 'home.html',{
+            'room_name': "broadcast"
+        })
     else:
         return redirect('/ ')
     
@@ -78,4 +80,6 @@ def LoginPage(request):
 
 def LogoutPage(request):
     logout(request)
+   
+   
     return redirect('home')

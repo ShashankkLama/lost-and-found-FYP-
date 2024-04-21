@@ -6,20 +6,30 @@
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/viewitems.css' %}">
 <style>
-  /* Custom CSS for the decorated table */
+    .container {
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 65vh; /* Adjust as needed */
+    }
   .decorated-table {
       margin-top: 20px;
-      margin-left: 20px;
+      
       border-collapse: collapse;
-      width: 100%; /* Set width to 100% */
-      max-width: 110%; /* Set max-width to 110% */
+      width: auto;
       padding: 15px;
   }
   
   .decorated-table th, .decorated-table td {
       border: 1px solid #ddd;
-      padding: 10px;
+      padding: 30px;
+      padding-right: 58px;
+      padding-left: 58px;
       text-align: left;
+
+   
+
   }
   
   .decorated-table th {
@@ -39,8 +49,8 @@
 
 {% block content%}
 <div class="container">
-    <div class="row justify-content-center mt-5">
-        <div class="col-md-8">
+    {% comment %} <div class="row justify-content-center mt-1"> {% endcomment %}
+        {% comment %} <div class="col-md-8"> {% endcomment %}
             <table class="decorated-table">
                 <thead>
                     <tr>
