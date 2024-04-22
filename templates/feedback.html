@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% load static %}
 
@@ -12,13 +13,19 @@
 {% block content %}
 
 <div class="form-container">
-  <form class="form" method ="POST">
+  <form class="form" method="POST">
     {% csrf_token %}
     <h1>Provide Feedback</h1>
 
+    {% if error_message %}
+    <div class="alert alert-danger" role="alert">
+      {{ error_message }}
+    </div>
+    {% endif %}
+
     <div class="form-group">
       <label for="emailinput">Email</label>
-      <input name ="email" type="email" class="form-control" id="emailinput" placeholder="name@example.com" >
+      <input name="email" type="email" class="form-control" id="emailinput" placeholder="name@example.com">
     </div>
     
     <div class="form-group">
@@ -79,12 +86,20 @@
       <label for="feedbacktext">Share your experience and how it was.</label>
       <textarea name="feedbacktext" class="form-control" id="feedbacktext" rows="4"></textarea>
       <br/>
-      <button type="submit" class="btn btn-primary mx-auto my-auto d-block">Submit </button>
-
+      <button type="submit" class="btn btn-primary mx-auto my-auto d-block">Submit</button>
     </div>
-    
-
-    
   </form>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Function to hide the error message after 2 seconds
+    setTimeout(function() {
+      var errorMessage = document.getElementById('error-message');
+      if (errorMessage) {
+        errorMessage.style.display = 'none';
+      }
+    }, 2000);
+  });
+</script>
 {% endblock %}
