@@ -18,6 +18,12 @@
 
       <div id="reportText" class="text-center">REPORT LOST ITEM</div>
 
+      {% if error_message %}
+      <div class="alert alert-danger" role="alert">
+        {{ error_message }}
+      </div>
+      {% endif %}
+
         <label for="itemname">Item Name</label>
         <input type="text" class="form-control" placeholder="Enter name" id="name" name="name"/><br/><br/>
         

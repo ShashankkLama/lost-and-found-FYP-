@@ -10,11 +10,6 @@ import json
 from django.http import HttpResponse
 
 
-# def ReportFoundItem(request):
-#     articles = Article.objects.all()  # Fetch all articles from the database
-#     return render(request, 'datashow.html', {'articles': articles})
-#     return render(request, 'datashow.html', {'found_data': 'Data for found item'})
-
 def ReportLostItem(request):
     if request.method == 'POST':
         user = request.user if request.user.is_authenticated else None
@@ -29,6 +24,10 @@ def ReportLostItem(request):
                 lostdate= request.POST.get('lostdate')
                 description = request.POST.get('description')
                 status = "Lost"
+                
+                if not all([name, brand, category, lostlocation, lostdate, description]):
+                    error_message = "Please fill out all the empty fields."
+                    return render(request, 'reportlost.html', {'error_message': error_message})
                 
                 try:
                 # Convert the date string to a datetime object
@@ -51,7 +50,6 @@ def ReportLostItem(request):
                 
                 # Print additional information after successful creation
                 print('User:', article.user.username)
-                print('Item reported successfully:')
                 print('Name:', article.name)
                 print('Brand:', article.brand)
                 print('Category:', article.category)
