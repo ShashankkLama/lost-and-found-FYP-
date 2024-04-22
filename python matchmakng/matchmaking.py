@@ -1,17 +1,17 @@
 # Importing required libraries
-import numpy as np 
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import matplotlib.pyplot as plt
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.model_selection import GridSearchCV
-from sklearn import svm
-from sklearn.model_selection import train_test_split
-from sklearn.svm import SVC
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.metrics import accuracy_score
-from sklearn.feature_extraction.text import TfidfVectorizer
+import numpy as np  # type: ignore
+import pandas as pd # type: ignore # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt# type: ignore # data processing, CSV file I/O (e.g. pd.read_csv)
+from sklearn.feature_extraction.text import CountVectorizer# type: ignore # data processing, CSV file I/O (e.g. pd.read_csv)
+from sklearn.model_selection import GridSearchCV# type: ignore # data processing, CSV file I/O (e.g. pd.read_csv)
+from sklearn import svm# type: ignore # data processing, CSV file I/O (e.g. pd.read_csv)
+from sklearn.model_selection import train_test_split# type: ignore # data processing, CSV file I/O (e.g. pd.read_csv)
+from sklearn.svm import SVC# type: ignore # data processing, CSV file I/O (e.g. pd.read_csv)
+from sklearn.preprocessing import OneHotEncoder# type: ignore # data processing, CSV file I/O (e.g. pd.read_csv)
+from sklearn.metrics import accuracy_score# type: ignore # data processing, CSV file I/O (e.g. pd.read_csv)
+from sklearn.feature_extraction.text import TfidfVectorizer# type: ignore # data processing, CSV file I/O (e.g. pd.read_csv)
 import random 
-from sklearn.neighbors import NearestNeighbors
+from sklearn.neighbors import NearestNeighbors# type: ignore # data processing, CSV file I/O (e.g. pd.read_csv)
 
 # Loading the dataset
 df = pd.read_csv("fypdata.csv")

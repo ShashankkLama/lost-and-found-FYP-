@@ -83,3 +83,4 @@ def LogoutPage(request):
    
    
     return redirect('home')
+
