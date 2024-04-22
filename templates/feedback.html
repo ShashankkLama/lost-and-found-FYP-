@@ -23,6 +23,12 @@
     </div>
     {% endif %}
 
+    {% if success_message %}
+    <div class="alert alert-success" role="alert">
+      {{ success_message }}
+    </div>
+    {% endif %}
+
     <div class="form-group">
       <label for="emailinput">Email</label>
       <input name="email" type="email" class="form-control" id="emailinput" placeholder="name@example.com">

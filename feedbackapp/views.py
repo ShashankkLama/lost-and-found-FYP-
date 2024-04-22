@@ -24,6 +24,9 @@ def GiveFeedback(request):
                 rate=rating
             )
             print(f"Feedback instance created: {feedback_instance}")
+            
+            success_message = "Feedback submitted successfully"
+            return render(request, 'feedback.html', {'success_message': success_message})
         except Exception as e:
             print(f"Error creating feedback: {e}")
 
