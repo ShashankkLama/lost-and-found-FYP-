@@ -6,12 +6,12 @@
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/viewitems.css' %}">
 <style>
-    .container {
+    {% comment %} .container {
         
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 90vh; /* Adjust as needed */
+        height: 100vh; /* Adjust as needed */
     }
   .decorated-table {
       margin-top: 20px;
@@ -19,7 +19,7 @@
       border-collapse: collapse;
       width: auto;
       padding: 15px;
-  }
+   }
   
   .decorated-table th, .decorated-table td {
       border: 1px solid #ddd;
@@ -28,7 +28,6 @@
       padding-left: 58px;
       text-align: left;
 
-   
 
   }
   
@@ -39,7 +38,43 @@
   
   .decorated-table th:first-child, .decorated-table td:first-child {
       padding-left: 20px;
-  }
+  } {% endcomment %}
+
+  <style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+    }
+
+    .decorated-table {
+        margin-top: 20px;
+        border-collapse: collapse;
+        width: auto;
+        padding: 15px;
+    }
+
+    .decorated-table th, .decorated-table td {
+        border: 1px solid #ddd;
+        padding: 20px;
+        padding-right: 8px;
+        padding-left: 2px; 
+        text-align: left;
+        
+    }
+
+    .decorated-table th {
+        background-color: #2b1b71;
+        color: white;
+        padding: 20px; /* Adjust padding as needed */
+    }
+
+    .decorated-table th:first-child,
+    .decorated-table td:first-child {
+        padding-left: 20px;
+    }
+</style>
   
   
 </style>

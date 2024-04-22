@@ -82,6 +82,10 @@ def ReportFoundItem(request):
                 description = request.POST.get('description')
                 status = "Found"
                 
+                if not all([name, brand, category, foundlocation, founddate, description]):
+                    error_message = "Please fill out all the empty fields."
+                    return render(request, 'reportlost.html', {'error_message': error_message})
+                
                 
                 # Convert the date string to a datetime object
                 founddate = datetime.strptime(founddate, '%Y-%m-%d').date()
